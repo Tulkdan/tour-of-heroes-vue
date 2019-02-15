@@ -1,17 +1,10 @@
 <template>
   <div class="hello">
     <ul>
-      <li v-for="hero in HEROES" :key="hero.id" class="heroes" @click="selectedHero = hero">
+      <router-link v-for="hero in HEROES" :key="hero.id" class="heroes" :to="'/detail/'+hero.id" tag="li">
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-      </li>
+      </router-link>
     </ul>
-
-    <hero-detail
-      v-if="selectedHero"
-      :hero="selectedHero"
-      @save-hero="saveHero"
-    />
-
   </div>
 </template>
 
@@ -24,11 +17,6 @@ export default {
   data () {
     return {
       selectedHero: null
-    }
-  },
-  methods: {
-    saveHero: function () {
-      this.selectedHero = null
     }
   },
   components: {
@@ -47,19 +35,25 @@ export default {
 ul {
   margin: 0;
   padding: 0;
+  width: 20%;
+  padding: 1.5em;
 }
 .heroes {
   list-style-type: none;
   margin-bottom: 10px;
   background-color: #cce;
-  padding: 5px 0;
+  padding: 0.7em 0;
   cursor: pointer;
+  border-radius: 0.4em 0.3em 0.3em 0.4em;
+  max-height: 50px;
 }
 .heroes:hover {
   background-color: #ccc;
 }
 .heroes .badge {
-  padding: 5px;
+  padding: 0.7em 0.5em;
+  margin-right: 5px;
+  border-radius: 0.3em 0 0 0.3em;
   background-color: #ccc;
 }
 </style>

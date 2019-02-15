@@ -9,18 +9,25 @@
       <input type="text" name="name" v-model="hero.name">
     </div>
     <div class="row">
-      <button class="btn" @click="saveHero">Save</button>
+      <button class="btn back" @click="back">Voltar</button>
+      <button class="btn save" @click="back">Save</button>
     </div>
   </div>
 </template>
 
 <script>
+import herois from '../mock-heroes.js'
+
 export default {
   name: 'HeroDetail',
-  props: ['hero'],
   methods: {
-    saveHero: function () {
-      this.$emit('save-hero')
+    back: function () {
+      this.$router.go(-1)
+    }
+  },
+  computed: {
+    hero () {
+      return herois.state.heroes.filter(hero => hero.id === Number(this.$route.params.id))[0]
     }
   }
 }
@@ -32,8 +39,14 @@ export default {
 }
 .btn {
   border: 0;
+  padding: 5px 15px;
+}
+.btn.save {
   background-color: green;
   color: white;
-  padding: 5px 15px;
+}
+.btn.back {
+  background-color: red;
+  color: white;
 }
 </style>
