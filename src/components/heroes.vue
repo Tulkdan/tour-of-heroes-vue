@@ -36,7 +36,6 @@ ul {
   margin: 0;
   padding: 0;
   width: 20%;
-  padding: 1.5em;
 }
 .heroes {
   list-style-type: none;

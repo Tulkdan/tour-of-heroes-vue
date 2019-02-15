@@ -9,7 +9,6 @@
       <input type="text" name="name" v-model="hero.name">
     </div>
     <div class="row">
-      <button class="btn back" @click="back">Voltar</button>
       <button class="btn save" @click="back">Save</button>
     </div>
   </div>
@@ -39,14 +38,15 @@ export default {
 }
 .btn {
   border: 0;
-  padding: 5px 15px;
+  padding: 7px 15px;
+  border-radius: 0.3em;
+  cursor: pointer;
 }
 .btn.save {
   background-color: green;
   color: white;
 }
-.btn.back {
-  background-color: red;
-  color: white;
+.btn.save:hover {
+  background-color: rgb(0, 121, 0);
 }
 </style>
