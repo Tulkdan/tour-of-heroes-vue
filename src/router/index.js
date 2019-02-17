@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import Router from 'vue-router';
 
+import Dashboard from '../components/dashboard.vue';
 import Heroes from '../components/heroes.vue';
 import HeroDetail from '../components/hero-detail.vue';
 
@@ -12,7 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/list',
+      redirect: '/dashboard',
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
     },
     {
       path: '/list',

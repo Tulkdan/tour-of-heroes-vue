@@ -14,14 +14,10 @@
 </template>
 
 <script>
-import HeroDetail from './hero-detail.vue';
 import herois from '../mock-heroes';
 
 export default {
   name: 'Heroes',
-  components: {
-    HeroDetail,
-  },
   data() {
     return {
       selectedHero: null,
@@ -58,6 +54,10 @@ export default {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
+}
+.heroes .text {
+  position: relative;
+  top: -3px;
 }
 .heroes .badge {
   display: inline-block;

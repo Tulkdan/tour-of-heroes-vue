@@ -1,27 +1,22 @@
 <template>
-  <div class="details">
-    <div class="row">
-      <label for="id">Id</label>
-      <input
-        v-model="hero.id"
-        type="text"
-        name="id"
-        disabled>
+  <div>
+    <h2>{{ hero.name }}</h2>
+    <div>
+      <span>id: </span>{{ hero.id }}
     </div>
-    <div class="row">
-      <label for="name">Name</label>
-      <input
-        v-model="hero.name"
-        type="text"
-        name="name" >
+    <div>
+      <label>name:
+        <input
+          v-model="hero.name"
+          name="name"
+          type="text">
+      </label>
     </div>
-    <div class="row">
-      <button
-        class="btn save"
-        @click="back">
-        Save
-      </button>
-    </div>
+    <button
+      class="btn save"
+      @click="back">
+      Save
+    </button>
   </div>
 </template>
 
@@ -44,20 +39,35 @@ export default {
 </script>
 
 <style>
-.row {
-  margin-bottom: 10px;
+/* HeroDetailComponent's private CSS styles */
+label {
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
 }
-.btn {
-  border: 0;
-  padding: 7px 15px;
-  border-radius: 0.3em;
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  cursor: hand;
 }
-.btn.save {
-  background-color: green;
-  color: white;
+button:hover {
+  background-color: #cfd8dc;
 }
-.btn.save:hover {
-  background-color: rgb(0, 121, 0);
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
 }
 </style>

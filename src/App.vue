@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <nav>
+      <router-link :to="'/dashboard'">Dashboard</router-link>
+      <router-link :to="'/list'">Heroes</router-link>
+    </nav>
     <router-view/>
   </div>
 </template>
@@ -13,5 +17,33 @@ export default {
 <style>
 #app {
   padding: 1.5em;
+}
+h1 {
+  font-size: 1.2em;
+  color: #999;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607d8b;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
 }
 </style>
