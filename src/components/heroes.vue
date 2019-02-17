@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
-    <ul>
-      <router-link v-for="hero in HEROES" :key="hero.id" class="heroes" :to="'/detail/'+hero.id" tag="li">
+    <ul class="heroes">
+      <router-link
+        v-for="hero in HEROES"
+        :key="hero.id"
+        :to="'/detail/'+hero.id"
+        class="heroes"
+        tag="li" >
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
       </router-link>
     </ul>
@@ -9,50 +14,63 @@
 </template>
 
 <script>
-import HeroDetail from './hero-detail.vue'
-import herois from '../mock-heroes.js'
+import HeroDetail from './hero-detail.vue';
+import herois from '../mock-heroes';
 
 export default {
-  name: 'heroes',
-  data () {
-    return {
-      selectedHero: null
-    }
-  },
+  name: 'Heroes',
   components: {
-    HeroDetail
+    HeroDetail,
+  },
+  data() {
+    return {
+      selectedHero: null,
+    };
   },
   computed: {
-    HEROES () {
-      return herois.state.heroes
-    }
-  }
-}
+    HEROES() {
+      return herois.state.heroes;
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul {
-  margin: 0;
-  padding: 0;
-  width: 20%;
-}
+/* HeroesComponent's private CSS styles */
 .heroes {
+  margin: 0 0 2em 0;
   list-style-type: none;
-  margin-bottom: 10px;
-  background-color: #cce;
-  padding: 0.7em 0;
-  cursor: pointer;
-  border-radius: 0.4em 0.3em 0.3em 0.4em;
-  max-height: 50px;
+  padding: 0;
+  width: 15em;
 }
-.heroes:hover {
-  background-color: #ccc;
+.heroes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
 }
 .heroes .badge {
-  padding: 0.7em 0.5em;
-  margin-right: 5px;
-  border-radius: 0.3em 0 0 0.3em;
-  background-color: #ccc;
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
 }
 </style>
