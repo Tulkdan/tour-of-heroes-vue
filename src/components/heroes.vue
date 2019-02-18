@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     HEROES() {
-      return herois.state.heroes;
+      return herois.getters.getHeroes;
     },
   },
 };

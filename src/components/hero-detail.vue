@@ -27,7 +27,7 @@ export default {
   name: 'HeroDetail',
   computed: {
     hero() {
-      return herois.state.heroes.filter(hero => hero.id === Number(this.$route.params.id))[0];
+      return herois.getters.getHero(Number(this.$route.params.id));
     },
   },
   methods: {
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /* HeroDetailComponent's private CSS styles */
 label {
   display: inline-block;
@@ -61,13 +61,15 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
+
+  &:hover {
+    background-color: #cfd8dc;
+  }
+
+  &:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
 }
 </style>

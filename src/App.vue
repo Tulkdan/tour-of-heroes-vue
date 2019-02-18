@@ -9,8 +9,13 @@
 </template>
 
 <script>
+import herois from './mock-heroes';
+
 export default {
   name: 'App',
+  created() {
+    herois.dispatch('getHerois');
+  },
 };
 </script>
 
