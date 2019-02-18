@@ -20,7 +20,7 @@ export default {
   name: 'Dashboard',
   computed: {
     HEROES() {
-      return herois.state.heroes.slice(3);
+      return herois.state.heroes.slice(0, 4);
     },
   },
 };
