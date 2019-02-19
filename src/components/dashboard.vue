@@ -26,4 +26,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="dashoard.scss"></style>
+<style lang="scss" src="../assets/style/dashboard.scss"></style>
